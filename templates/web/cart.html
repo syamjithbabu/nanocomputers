@@ -1,0 +1,155 @@
+{% extends 'web/partials/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <main class="main-wrapper">
+
+        <!-- Start Cart Area  -->
+        <div class="axil-product-cart-area axil-section-gap">
+            <div class="container">
+                <div class="axil-product-cart-wrap">
+                    <div class="product-table-heading">
+                        <h4 class="title">Your Cart</h4>
+                        <a href="#" class="cart-clear">Clear Shoping Cart</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table axil-product-table axil-cart-table mb--40">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="product-remove"></th>
+                                    <th scope="col" class="product-thumbnail">Product</th>
+                                    <th scope="col" class="product-title"></th>
+                                    <th scope="col" class="product-price">Price</th>
+                                    <th scope="col" class="product-quantity">Quantity</th>
+                                    <th scope="col" class="product-subtotal">Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for cart_item in cart_items %}
+                                <tr>
+                                    <td class="product-remove"><a href="{% url 'web:remove_cart_item' cart_item.item.id %}" class="remove-wishlist"><i class="fal fa-times"></i></a></td>
+                                    <td class="product-thumbnail"><a href="single-product.html"><img src="{{cart_item.item.product_image1.url}}" alt="Digital Product"></a></td>
+                                    <td class="product-title"><a href="single-product.html">{{cart_item.item.product_name}}</a></td>
+                                    <td class="product-price" data-title="Price"><span class="currency-symbol">Rs.</span>{{cart_item.item.product_price}}</td>
+                                    <td class="product-quantity" data-title="">
+                                        <a href="{% url 'web:add_cart' cart_item.item.id %}"><i class="fa fa-plus-circle" style="padding-left:25px;"></i></a>
+                                                
+                                            <input type="number" class="quantity-input" value="{{cart_item.quantity}}">
+                                            
+                                        <a href="{% url 'web:remove_cart' cart_item.item.id %}"><i class="fa fa-minus-circle" style="padding-left:25px;"></i></a>    
+                                                           
+                                    </td>
+                                    <td class="product-subtotal" data-title="Subtotal"><span class="currency-symbol">Rs.</span>{{cart_item.sub_total}}</td>
+                                </tr>
+                                {% endfor %}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="cart-update-btn-area">
+                        
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6"></div>
+                        <div class="col-lg-6">
+                            <div class="axil-order-summery order-checkout-summery">
+                                <h5 class="title mb--20">Order Summary</h5>
+                                <div class="summery-table-wrap">
+                                    <table class="table summery-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Product</th>
+                                                
+                                                <th>Sub Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for cart_item in cart_items %}
+                                            <tr class="order-product">
+                                                
+                                                <td>{{cart_item.item.product_name}} (Rs.{{cart_item.item.product_price}}) x {{cart_item.quantity}}<br/></td>
+                                                 
+                                                <td>Rs.{{cart_item.sub_total}}</td>                                             
+                                                
+                                            </tr>
+                                            {% endfor %}
+                                            
+                                            
+                                            <tr class="order-total">
+                                                <td>Total</td>
+                                                <td class="order-total-amount">{{total}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                
+                                <a href="{% url 'web:checkout' %}" class="axil-btn btn-bg-primary checkout-btn">Process to Checkout</a>
+                                
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- End Cart Area  -->
+
+    </main>
+
+
+    <div class="service-area">
+        <div class="container">
+            <div class="row row-cols-xl-4 row-cols-sm-2 row-cols-1 row--20">
+                <div class="col">
+                    <div class="service-box service-style-2">
+                        <div class="icon">
+                            <img src="{% static 'web/images/icons/service1.png' %}" alt="Service">
+                        </div>
+                        <div class="content">
+                            <h6 class="title">Fast &amp; Secure Delivery</h6>
+                            <p>Tell about your service.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="service-box service-style-2">
+                        <div class="icon">
+                            <img src="{% static 'web/images/icons/service2.png' %}" alt="Service">
+                        </div>
+                        <div class="content">
+                            <h6 class="title">Money Back Guarantee</h6>
+                            <p>Within 10 days.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="service-box service-style-2">
+                        <div class="icon">
+                            <img src="{% static 'web/images/icons/service3.png' %}" alt="Service">
+                        </div>
+                        <div class="content">
+                            <h6 class="title">24 Hour Return Policy</h6>
+                            <p>No question ask.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="service-box service-style-2">
+                        <div class="icon">
+                            <img src="{% static 'web/images/icons/service4.png' %}" alt="Service">
+                        </div>
+                        <div class="content">
+                            <h6 class="title">Pro Quality Support</h6>
+                            <p>24/7 Live support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+{% endblock %}

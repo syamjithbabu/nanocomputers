@@ -1,0 +1,90 @@
+{% load static %}
+<body class="sticky-header newsletter-popup-modal">
+
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+    <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
+    <header class="header axil-header header-style-1">
+        
+        <div class="axil-header-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="header-top-dropdown">
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="header-top-link">
+                            <ul class="quick-link">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Mainmenu Area  -->
+        <div id="axil-sticky-placeholder"></div>
+        <div class="axil-mainmenu">
+            <div class="container">
+                <div class="header-navbar">
+                    <div class="header-brand">
+                        <a href="{% url 'web:index' %}" class="logo logo-dark">
+                            <img src="{% static 'web/images/logo/nano-logo.png' %}" alt="Site Logo">
+                        </a>
+                        
+                    </div>
+                    <div class="header-main-nav">
+                        <!-- Start Mainmanu Nav -->
+                        <nav class="mainmenu-nav">
+                            <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
+                            <div class="mobile-nav-brand">
+                                <a href="{% url 'web:index' %}" class="logo">
+                                    <img src="{% static 'web/images/logo/nano-logo.png' %}" alt="Site Logo">
+                                </a>
+                            </div>
+                            <ul class="mainmenu">
+                                <li>
+                                    <a href="{% url 'web:index' %}">Home</a>
+                                </li>
+
+                                <li>
+                                    <a href="{% url 'web:shop' %}">Shop</a>                                   
+                                </li>
+                                <li><a href="{% url 'web:about' %}">About</a></li>
+                                
+                                
+                                <li>
+                                    <a href="{% url 'web:blog' %}">Blog</a>
+                                    
+                                </li>
+                                <li><a href="{% url 'web:contact' %}">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <!-- End Mainmanu Nav -->
+                    </div>
+                    <div class="header-action">
+                        <ul class="action-list">
+                            <!-- <li class="axil-search">
+                                <a href="javascript:void(0)" class="header-search-icon" title="Search">
+                                    <i class="flaticon-magnifying-glass"></i>
+                                </a>
+                            </li> -->
+                            
+                            <li class="shopping-cart">
+                                <a href="{% url 'web:cart' %}" class="cart-dropdown-btn">
+                                    <span class="cart-count">{{count}}</span>
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                            </li>
+                            
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Mainmenu Area -->
+    </header>
