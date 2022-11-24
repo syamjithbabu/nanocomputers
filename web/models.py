@@ -26,6 +26,12 @@ class SubCategory(models.Model):
     def __str__(self):
         return str(self.sub_category_name)
 
+class FilterPrice(models.Model):
+    price_range = models.CharField(max_length=100)
+
+    def __str__(self):
+        return str(self.price_range)
+
 class Product(models.Model):
     product_name = models.CharField(max_length=100)
     product_price = models.IntegerField()
@@ -40,6 +46,7 @@ class Product(models.Model):
     product_off = models.IntegerField()
     category = models.ForeignKey(Category,on_delete=models.CASCADE,null=True)
     sub_category = models.ForeignKey(SubCategory,on_delete=models.CASCADE,null=True)
+    price_range = models.ForeignKey(FilterPrice,on_delete=models.CASCADE,null=True)
 
     def __str__(self):
         return str(self.product_name)
@@ -109,3 +116,16 @@ class CartItem(models.Model):
     
     def __str__(self):
         return self.item
+
+class Order(models.Model):
+    client_name = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    district = models.CharField(max_length=100)
+    address = models.CharField(max_length=1000)
+    pincode = models.IntegerField()
+    phone1 = models.CharField(max_length=10)
+    phone2 = models.CharField(max_length=10)
+    email = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.client_name

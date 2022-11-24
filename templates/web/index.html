@@ -63,7 +63,7 @@
                     {% for category in category %}
                     <div class="slick-single-layout">
                         <div class="categrie-product" data-sal="zoom-out" data-sal-delay="200" data-sal-duration="500">
-                            <a href="#">
+                            <a href="shop?categories={{category.id}}">
                                 <img class="img-fluid" src="{{category.category_image.url}}" alt="product categorie">
                                 <h6 class="cat-title">{{category.category_name}}</h6>
                             </a>
@@ -90,7 +90,7 @@
                                     <h2 class="title">{{offers.offer_title}}</h2>
                                 </div>
                                 <div class="poster-countdown countdown mb--40"></div>
-                                <a href="#" class="axil-btn btn-bg-primary">Check it Out!</a>
+                                <a href="{% url 'web:shop' %}" class="axil-btn btn-bg-primary">Check it Out!</a>
                             </div>
                         </div>
                         <div class="col-xl-7 col-lg-6">
@@ -122,7 +122,7 @@
                                     <div class="thumbnail">
                                         <a href="{% url 'web:single-product' products.id %}">
         
-                                            <img data-sal="zoom-out" data-sal-delay="200" data-sal-duration="800" loading="lazy" class="main-img" src="{{products.product_image1.url}}" alt="Product Images">
+                                            <img data-sal="zoom-out" data-sal-delay="200" data-sal-duration="800" loading="lazy" class="main-img" src="{{products.product_image1.crop.255x255}}" alt="Product Images">
                                             
                                         </a>
                                         <div class="label-block label-right">
@@ -187,8 +187,9 @@
                                 <img src="{{feedback.user_image.crop.60x60}}" alt="testimonial image">
                             </div>
                             <div class="media-body">
-                                <span class="designation">{{feedback.user_role}}</span>
                                 <h6 class="title">{{feedback.username}}</h6>
+                                <span class="designation">{{feedback.user_role}}</span>
+                                
                             </div>
                         </div>
                         <!-- End .thumbnail -->
@@ -210,44 +211,44 @@
                     <h2 class="title">Why People Choose Us</h2>
                 </div>
                 <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 row--20">
-                    <div class="col-6">
+                    <div class="col-4">
                         <div class="service-box">
                             <div class="icon">
                                 <img src="{% static 'web/images/icons/service6.png' %}" alt="Service">
                             </div>
-                            <h6 class="title">Fast &amp; Secure Delivery</h6>
+                            <h6 class="title1">Fast &amp; Secure Delivery</h6>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
                         <div class="service-box">
                             <div class="icon">
                                 <img src="{% static 'web/images/icons/service7.png' %}" alt="Service">
                             </div>
-                            <h6 class="title">100% Guarantee On Product</h6>
+                            <h6 class="title1">100% Guarantee On Product</h6>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
                         <div class="service-box">
                             <div class="icon">
                                 <img src="{% static 'web/images/icons/service8.png' %}" alt="Service">
                             </div>
-                            <h6 class="title">24 Hour Return Policy</h6>
+                            <h6 class="title1">24 Hour Return Policy</h6>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
                         <div class="service-box">
                             <div class="icon">
                                 <img src="{% static 'web/images/icons/service9.png' %}" alt="Service">
                             </div>
-                            <h6 class="title">24 Hour Return Policy</h6>
+                            <h6 class="title1">24 Hour Return Policy</h6>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
                         <div class="service-box">
                             <div class="icon">
                                 <img src="{% static 'web/images/icons/service10.png' %}" alt="Service">
                             </div>
-                            <h6 class="title">Next Level Pro Quality</h6>
+                            <h6 class="title1">Next Level Pro Quality</h6>
                         </div>
                     </div>
                 </div>

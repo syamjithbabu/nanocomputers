@@ -12,9 +12,9 @@
                     <div class="col-lg-6 col-md-8">
                         <div class="inner">
                             <ul class="axil-breadcrumb">
-                                <li class="axil-breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="axil-breadcrumb-item"><a href="{% url 'web:index' %}">Home</a></li>
                                 <li class="separator"></li>
-                                <li class="axil-breadcrumb-item active" aria-current="page">My Account</li>
+                                <li class="axil-breadcrumb-item active" aria-current="page">Shop</li>
                             </ul>
                             <h1 class="title">Explore All Products</h1>
                         </div>
@@ -36,22 +36,30 @@
 
 
                                         <!-- Start Single Select  -->
-                                        <select class="single-select">
+                                        <select class="single-select" onchange="location = this.value;">
                                             <option>Price Range</option>
-                                            <option>0 - 100</option>
-                                            <option>100 - 500</option>
-                                            <option>500 - 1000</option>
-                                            <option>1000 - 1500</option>
+                                            <option value="{% url 'web:shop' %}">All Products</option>
+                                            {% for filter_price in filter_price %}
+                                            <option value="shop?pricerange={{filter_price.id}}">{{filter_price.price_range}}</option>
+                                            {% endfor %}
                                         </select>
                                         <!-- End Single Select  -->
 
                                         <!-- Start Single Select  -->
-                                        <select class="single-select">
-                                            <option>Sub Categories</option>
+                                        <select class="single-select" onchange="location = this.value;">
+                                            <option value="#">Sub Categories</option>
+                                            <option value="{% url 'web:shop' %}">All Products</option>
                                             {% for subcategory in subcategory %}
-                                            <option>{{subcategory.sub_category_name}}</option>
+                                            <option value="shop?subcategories={{subcategory.id}}">{{subcategory.sub_category_name}}</option>
                                             {% endfor %}
                                         </select>
+
+                                        <!-- <ul>
+                                            <li><a href="{% url 'web:shop' %}">All Products</a></li>
+                                            {% for subcategory in subcategory %}
+                                            <li><a href="shop?subcategories={{subcategory.id}}">{{subcategory.sub_category_name}}</a></li>
+                                            {% endfor %}
+                                        </ul> -->
                                         <!-- End Single Select  -->
 
                                         
@@ -72,7 +80,7 @@
                             <div class="thumbnail">
                                 <a href="{% url 'web:single-product' products.id %}">
 
-                                    <img data-sal="zoom-out" data-sal-delay="200" data-sal-duration="800" loading="lazy" class="main-img" src="{{products.product_image1.url}}" alt="Product Images">
+                                    <img data-sal="zoom-out" data-sal-delay="200" data-sal-duration="800" loading="lazy" class="main-img" src="{{products.product_image1.crop.255x255}}" alt="Product Images">
                                     
                                 </a>
                                 <div class="label-block label-right">

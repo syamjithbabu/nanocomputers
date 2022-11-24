@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from web.models import Banner,Category,SubCategory,Product,SpecialOffer,Blog,Team,Feedback,Ad,Cart,CartItem
+from web.models import Banner,Category,SubCategory,Product,SpecialOffer,Blog,Team,Feedback,Ad,Cart,CartItem,FilterPrice
 
 # Register your models here.
 
@@ -15,3 +15,4 @@ admin.site.register(Feedback)
 admin.site.register(Ad)
 admin.site.register(Cart)
 admin.site.register(CartItem)
+admin.site.register(FilterPrice)

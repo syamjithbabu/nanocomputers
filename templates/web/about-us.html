@@ -12,7 +12,7 @@
                     <div class="col-lg-6 col-md-8">
                         <div class="inner">
                             <ul class="axil-breadcrumb">
-                                <li class="axil-breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="axil-breadcrumb-item"><a href="{% url 'web:index' %}">Home</a></li>
                                 <li class="separator"></li>
                                 <li class="axil-breadcrumb-item active" aria-current="page">About Us</li>
                             </ul>
@@ -121,8 +121,9 @@
                             <div class="axil-team-member">
                                 <div class="thumbnail"><img src="{{team.employee_image.url}}" alt="Cody Fisher"></div>
                                 <div class="team-content">
+                                    <h5 class="title11">{{team.employee_name}}</h5>
                                     <span class="subtitle">{{team.designation}}</span>
-                                    <h5 class="title">{{team.employee_name}}</h5>
+                                    
                                 </div>
                             </div>
                         </div>
